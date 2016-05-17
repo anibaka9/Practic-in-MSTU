@@ -1,7 +1,4 @@
-// 1n3.cpp: определяет точку входа для консольного приложения.
-//
-
-#include "stdafx.h"
+#include <stdio.h>
 #include <iostream>
 #include "math.h"
 #include <cmath>
