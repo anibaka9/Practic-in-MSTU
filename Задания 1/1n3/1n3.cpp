@@ -59,26 +59,17 @@ void prvec(int n, double*a)
 
 void summ(int n, double *a, double *b, double *c)
 {
-	for (int i = 0; i < n; ++i)
-	{
-		c[i] = a[i] + b[i];
-	}
+	for (int i = 0; i < n; ++i) c[i] = a[i] + b[i];
 }
 
 void raz(int n, double *a, double *b, double *c)
 {
-	for (int i = 0; i < n; ++i)
-	{
-		c[i] = a[i] - b[i];
-	}
+	for (int i = 0; i < n; ++i) c[i] = a[i] - b[i];
 }
 
 int scal(int n, double *a, double *b)
 {
 	int res = 0;
-	for (int i = 0; i < n; ++i)
-	{
-		res += a[i] * b[i];
-	}
+	for (int i = 0; i < n; ++i) res += a[i] * b[i];
 	return res;
 }
