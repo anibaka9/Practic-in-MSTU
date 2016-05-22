@@ -1,41 +1,53 @@
-// 1n4.cpp: определяет точку входа для консольного приложения.
-//
-
-#include "stdafx.h"
+#include <stdio.h>
+#include <ctype.h>
 #include <iostream>
 #include "math.h"
 #include <cmath>
 
 using namespace std;
 
-void scal(double *a, double *b, double *c)
+double scal(int n, double *a, double *b);
+double modul(int n, double *a);
+double angle(int n, double *a, double *b);
+
+int main()
 {
-    for (int i = 0; i < sizeof(a); i++) c[i] = a[i] * b[i];
+    int n;
+    do
+    {
+
+        cout << "input n\n";
+        cin >> n;
+        if (n != 0)
+        {
+            double *a = new double[n], *b = new double[n];
+            cout << "inp a\n";
+            for (int i = 0; i < n; ++i) cin >> a[i];
+            cout << "inp b\n";
+            for (int i = 0; i < n; ++i) cin >> b[i];
+            cout << "Lenght a = " << modul(n, a) << "\n";
+            cout << "Lenght b = " << modul(n, b) << "\n";
+            cout << "The angle between a and b = " << angle(n, a, b) << "\n";
+        }
+    }
+    while(n != 0);
+    return 0;
 }
 
-void vsum(double *a, double *b, double *c)
+
+double scal(int n, double *a, double *b)
 {
-    for (int i = 0; i < sizeof(a); i++) c[i] = a[i] + b[i];
+    double res = 0;
+    for (int i = 0; i < n; ++i) res += a[i] * b[i];
+    return res;
 }
 
-void vras(double *a, double *b, double *c)
+double modul(int n, double *a) 
 {
-    for (int i = 0; i < sizeof(a); i++) c[i] = a[i] - b[i];
+    return scal(n, a, a);
 }
 
-void vras(double *a)
+double angle(int n, double *a, double *b) 
 {
-    for (int i = 0; i < sizeof(a); i++) cout << a[i] << " ";
-    cout << "\n";
+    return acos(scal(n, a, b) / (modul(n, a) * modul(n, b)));
 }
-
-int _tmain(int argc, _TCHAR* argv[])
-{
-    int ras;
-    cin >> ras;
-    double *a = new double[ras], *b = new double[ras];
-    for (int i = 0; i < ras; i++) cin >> a[i];
-    for (int i = 0; i < ras; i++) cin >> b[i];
-	return 0;
-}
-

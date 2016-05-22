@@ -4,6 +4,7 @@
 #include "math.h"
 #include <cmath>
 
+
 using namespace std;
 
 void prvec(int n, double *a);
