@@ -12,7 +12,7 @@ void summ(int n, double *a, double *b, double *c);
 
 void raz(int n, double *a, double *b, double *c);
 
-int scal(int n, double *a, double *b);
+double scal(int n, double *a, double *b);
 
 int main()
 {
@@ -67,9 +67,9 @@ void raz(int n, double *a, double *b, double *c)
 	for (int i = 0; i < n; ++i) c[i] = a[i] - b[i];
 }
 
-int scal(int n, double *a, double *b)
+double scal(int n, double *a, double *b)
 {
-	int res = 0;
+	double res = 0;
 	for (int i = 0; i < n; ++i) res += a[i] * b[i];
 	return res;
 }
