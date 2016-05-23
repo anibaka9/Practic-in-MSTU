@@ -44,7 +44,7 @@ double scal(int n, double *a, double *b)
 
 double modul(int n, double *a) 
 {
-    return asb(scal(n, a, a));
+    return abs(scal(n, a, a));
 }
 
 double angle(int n, double *a, double *b) 
