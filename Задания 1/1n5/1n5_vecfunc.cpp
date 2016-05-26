@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <iostream>
 #include "math.h"
-#include <cmath>
+//#include <cmath>
 #include "1n5_vecfunc.h"
 
 using namespace std;
@@ -17,7 +17,7 @@ double scal(int n, double *a, double *b)
 
 double modul(int n, double *a) 
 {
-    return abs(scal(n, a, a));
+    return sqrt(scal(n, a, a));
 }
 
 double angle(int n, double *a, double *b) 
@@ -36,7 +36,7 @@ double area(double *a, double *b)
 {
     double c[3];
     vecpr(a, b, c);
-    return modul(3, c) / (modul(3, a) * modul(3, b));
+    return modul(3, c);
 }
 
 void prvec(int n, double*a)

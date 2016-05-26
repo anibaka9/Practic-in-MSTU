@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <iostream>
 #include "math.h"
-#include <cmath>
 #include "1n5_vecfunc.h"
 
 using namespace std;
@@ -14,7 +12,8 @@ int main()
     {
         cout << "input n\n";
         cin >> n;
-        if (n != 0)
+        if (n < 0) continue;
+        if (n == 2 || n == 3)
         {
             double a[3], b[3], c[3];
             cout << "inp a\n";
@@ -30,7 +29,7 @@ int main()
             }
             vecpr(a, b, c);
             cout << "a X b = ";
-            prvec(n, c);
+            prvec(3, c);
             cout << "Area = " << area(a, b) << "\n";
         }
     }

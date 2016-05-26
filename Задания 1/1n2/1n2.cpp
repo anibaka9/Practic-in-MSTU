@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <iostream>
 #include "math.h"
-#include <cmath>
 
 using namespace std;
 
 int main()
 {
-    double el, sum, sr, mmin, mmax;
+    double el, sr, mmin, mmax;
     int n = 1;
     cout << "inp els\n";
     cin >> el;
@@ -18,11 +17,11 @@ int main()
     {
         cin >> el;
         n++;
-        sr = (sr * (n - 1) + el) / n;
+        sr += el;
         if (el < mmin) mmin = el;
         if (el > mmax) mmax = el;
         if (el != 0) cout << " min = " << mmin
-                     << " sr = " << sr << " max = " << mmax << "\n";
+                     << " sr = " << sr / n << " max = " << mmax << "\n";
     }
 	return 0;
 }

@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <iostream>
 #include "math.h"
-#include <cmath>
+//#include <cmath>
 
 using namespace std;
 
@@ -18,6 +18,7 @@ int main()
 
         cout << "input n\n";
         cin >> n;
+        if (n < 0) continue;
         if (n != 0)
         {
             double *a = new double[n], *b = new double[n];
@@ -44,7 +45,7 @@ double scal(int n, double *a, double *b)
 
 double modul(int n, double *a) 
 {
-    return abs(scal(n, a, a));
+    return sqrt(scal(n, a, a));
 }
 
 double angle(int n, double *a, double *b) 
