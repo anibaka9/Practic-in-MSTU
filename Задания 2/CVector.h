@@ -7,10 +7,10 @@ public:
 	CVector()
 	{
 		size = 0;
-		data = new double[n];
+		data = new double[0];
 	}
 
-	CVector(int n, *dt)
+	CVector(int n,double *dt)
 	{
 		setsize(n);
 		setdata(dt);
@@ -23,10 +23,13 @@ public:
 			data[i] = a.data[i];
 	}
 
-	void print();
+	void print(CVector &a);
 
 	~CVector() { }
 
+	void setsize(int n);
+	void setdata(double *a);
+	
 	void prib(CVector &a);
 	void vich(CVector &a);
 	CVector sum(CVector &a, CVector &b);
@@ -36,7 +39,7 @@ public:
 	double scal(CVector &a, CVector &b);
 	bool raven(CVector &a, CVector &b);
 	bool neraven(CVector &a, CVector &b);
-	CVector copy(CVector &a);
+	void copy(CVector &a);
 
 	void operator+=(CVector &a);
 	void operator-=(CVector &a);
@@ -50,12 +53,9 @@ public:
 	bool operator!=(CVector &a);
 	CVector operator=(CVector &a);
 
-
 private:
 	double *data;
 	unsigned int size;
-	void setsize(int n);
-	void setdata(double *a)
 };
 
 #endif
