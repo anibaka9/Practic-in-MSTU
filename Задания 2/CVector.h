@@ -10,40 +10,27 @@ public:
 		data = new double[0];
 	}
 
-	CVector(int n,double *dt)
+	CVector(int n, double *dt)
 	{
-		setsize(n);
-		setdata(dt);
+		setdata(n, dt);
 	}
 
 	CVector(const CVector &a)
 	{
-		size = a.size;
-		for (int i = 0	; i < size; ++i)
-			data[i] = a.data[i];
+		setdata(a.size, a.data);
 	}
 
-	void print(CVector &a);
 
-	~CVector() { }
 
-	void setsize(int n);
-	void setdata(double *a);
-	
-	void prib(CVector &a);
-	void vich(CVector &a);
-	CVector sum(CVector &a, CVector &b);
-	CVector raz(CVector &a, CVector &b);
-	CVector umncoef(double a);
-	CVector vecumn(CVector &a, CVector &b);
-	double scal(CVector &a, CVector &b);
-	bool raven(CVector &a, CVector &b);
-	bool neraven(CVector &a, CVector &b);
-	void copy(CVector &a);
+	~CVector() {delete[]data; }
 
-	void operator+=(CVector &a);
-	void operator-=(CVector &a);
-	void operator*=(double a);
+	void print();
+
+
+	CVector&operator = (CVector &a);
+	CVector&operator+=(CVector &a);
+	CVector&operator-=(CVector &a);
+	CVector&operator*=(double a);
 	CVector operator+(CVector &a);
 	CVector operator-(CVector &a);
 	CVector operator*(double a);
@@ -51,7 +38,24 @@ public:
 	double operator&(CVector &a);
 	bool operator==(CVector &a);
 	bool operator!=(CVector &a);
-	CVector operator=(CVector &a);
+
+
+protected:
+	void setdata(unsigned int n, double *a);
+	void getdata(double *a);
+	unsigned int getsize();
+	
+	void prib(CVector &a);
+	void vich(CVector &a);
+	CVector sum(CVector &a);
+	CVector raz(CVector &a);
+	void umncoef(double a);
+	CVector vecumn(CVector &a);
+	double scal(CVector &a);
+	bool raven(CVector &a);
+	bool neraven(CVector &a);
+	void copy(CVector &a);
+
 
 private:
 	double *data;

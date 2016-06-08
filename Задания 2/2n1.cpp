@@ -6,11 +6,13 @@
 
 int main(int argc, char const *argv[])
 {
-	CVector a;
 	double b[3] = {1, 2, 3};
-	a.setsize(3);
-	a.setdata(b);
-	CVector::print(a);
+	CVector a = CVector(3, b);
+	a.print();
+	double d[3] = {1, 0, 0};
+	CVector c = CVector(3, d);
+	a = c;
+	a.print();
 	getchar();
 	return 0;
 }
