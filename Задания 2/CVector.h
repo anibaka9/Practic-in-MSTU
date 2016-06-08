@@ -10,13 +10,17 @@ public:
 		data = new double[0];
 	}
 
-	CVector(int n, double *dt)
+	CVector(int n, double *dt = 0)
 	{
+		size = 0;
+		data = 0;
 		setdata(n, dt);
 	}
 
 	CVector(const CVector &a)
 	{
+		size = 0;
+		data = 0;
 		setdata(a.size, a.data);
 	}
 
@@ -27,7 +31,7 @@ public:
 	void print();
 
 
-	CVector&operator = (CVector &a);
+	CVector&operator = (CVector a);
 	CVector&operator+=(CVector &a);
 	CVector&operator-=(CVector &a);
 	CVector&operator*=(double a);
@@ -41,10 +45,10 @@ public:
 
 
 protected:
-	void setdata(unsigned int n, double *a);
+	void setdata(int n, double *a);
 	void getdata(double *a);
 	unsigned int getsize();
-	
+
 	void prib(CVector &a);
 	void vich(CVector &a);
 	CVector sum(CVector &a);
@@ -59,7 +63,7 @@ protected:
 
 private:
 	double *data;
-	unsigned int size;
+	int size;
 };
 
 #endif

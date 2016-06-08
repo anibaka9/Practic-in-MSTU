@@ -6,7 +6,7 @@
 using namespace std;
 
 
-void CVector::setdata(unsigned int n, double *a)
+void CVector::setdata(int n, double *a)
 {
 	CVector::size = n;
 	delete[]CVector::data;
@@ -42,6 +42,7 @@ void CVector::prib(CVector &a)
 		for (int i = 0; i < a.size; ++i)
 			CVector::data[i] += (a.data)[i];
 	}
+	else cout << "Error: different dimension vectors" << endl;
 }
 
 void CVector::umncoef(double a)
@@ -77,9 +78,12 @@ double CVector::scal(CVector &a)
 {
 	double res = 0;
 	if(CVector::size == a.size) 
-	for (int i = 0; i < CVector::size; ++i)
-		res += CVector::data[i] * a.data[i];
-	return res;
+	{
+		for (int i = 0; i < CVector::size; ++i)
+			res += CVector::data[i] * a.data[i];
+		return res;
+	}
+	else cout << "Error: different dimension vectors" << endl;
 }
 
 CVector CVector::vecumn(CVector &a)
@@ -113,7 +117,7 @@ bool CVector::neraven(CVector &a) { return !(raven(a)); }
 
 //Operators
 
-CVector&CVector::operator=(CVector &a) 
+CVector&CVector::operator = (CVector a) 
 {
 	copy(a);
 	return *this;
@@ -137,7 +141,8 @@ CVector&CVector::operator*=(double a)
 }
 CVector CVector::operator+(CVector &a)
 {
-	return CVector::sum(a);
+	CVector res = CVector::sum(a);
+	return res;
 }
 CVector CVector::operator-(CVector &a) 
 {
