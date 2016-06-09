@@ -1,32 +1,19 @@
-#include <stdio.h>
-#include <iostream>
-#include "math.h"
+#include "CVectorshab.h"
+#define DATATYPE double
+#define VECTSIZE 3
 
-#include "CVector.h"
+void input_data(DATATYPE *x);
 
-using namespace std;
-
-int main(int argc, char const *argv[])
+int main(int argc, char* argv[])
 {
-	cout << "1: reference dimensions and the coordinates of the vector I" << endl <<
-	"2: reference dimensions and the coordinates of the vector II" << endl <<
-	"3: adding (v1 += v2)" << endl <<
-	"4: subtracting (v1 -= v2)" << endl <<
-	"5: multiplication (v1 *= a)" << endl <<
-	"6: comparing (v1 == v2)" << endl <<
-	"7: comparing (v1 != v2)" << endl <<
-	"8: equating (v2 = v1)" << endl <<
-	"9: vector addition (v3 = v1 + v2)" << endl <<
-	"10: vector difference (v3 = v1 - v2)" << endl <<
-	"11: vector by multiplying the number (v3 = v1 * a)" << endl <<
-	"12: scalar product (a = v1 * v2)" << endl <<
-	"13: coordinate conclusion" << endl <<
-	"0: exit" << endl;
+	DATATYPE *x = new DATATYPE[VECTSIZE];
 
-	CVector v1, v2, v3;
+	CVector<DATATYPE, VECTSIZE> v1(x);
+	CVector<DATATYPE, VECTSIZE> v2(x);
+	CVector<DATATYPE, VECTSIZE> v3(x);
+
 	int k = 1, n;
-	double a;
-	double *x = 0;
+	DATATYPE a;
 
 	while (k != 0)
 	{
@@ -43,7 +30,7 @@ int main(int argc, char const *argv[])
 			{
 				cin >> x[i];
 			}
-			v1 = CVector(n, x);
+			v1 = CVector<DATATYPE, VECTSIZE>(n, x);
 			break;
 		case 2: cout << "Enter the dimension of the vector II: ";
 			cin >> n;
@@ -54,7 +41,7 @@ int main(int argc, char const *argv[])
 			{
 				cin >> x[i];
 			}
-			v2 = CVector(n, x);
+			v2 = CVector<DATATYPE, VECTSIZE>(n, x);
 			break;
 		case 3: v1 += v2;
 			break;
@@ -95,5 +82,13 @@ int main(int argc, char const *argv[])
 			break;
 		}
 	}
-	return 0;
+
+}
+
+void input_data(DATATYPE *x)
+{
+	for (int i = 0; i < VECTSIZE; i++)
+	{
+		cin >> x[i];
+	}
 }

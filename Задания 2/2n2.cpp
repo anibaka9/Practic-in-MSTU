@@ -3,6 +3,10 @@
 #include "math.h"
 
 #include "CVector.h"
+#include "CVector2.h"
+#include "CVectorPn.h"
+
+
 
 using namespace std;
 
@@ -23,10 +27,19 @@ int main(int argc, char const *argv[])
 	"13: coordinate conclusion" << endl <<
 	"0: exit" << endl;
 
-	CVector v1, v2, v3;
-	int k = 1, n;
+	CVector *v1, *v2, v3;
+	int k = 1, n = 2;
 	double a;
 	double *x = 0;
+	x = new double[n];
+	x[0] = 0;
+	x[1] = 1;
+	CVector2 *CV2v1 = new CVector2(n, x);
+	CVectorPn *CVPnv1 = new CVectorPn(n, x);
+	x[0] = 1; x[1] = 2;
+	CVector2 *CV2v2 = new CVector2(n, x);
+	CVectorPn *CVPnv2 = new CVectorPn(n, x);
+	
 
 	while (k != 0)
 	{
@@ -43,7 +56,7 @@ int main(int argc, char const *argv[])
 			{
 				cin >> x[i];
 			}
-			v1 = CVector(n, x);
+			*v1 = CVector(n, x);
 			break;
 		case 2: cout << "Enter the dimension of the vector II: ";
 			cin >> n;
@@ -54,15 +67,15 @@ int main(int argc, char const *argv[])
 			{
 				cin >> x[i];
 			}
-			v2 = CVector(n, x);
+			*v2 = CVector(n, x);
 			break;
-		case 3: v1 += v2;
+		case 3: *v1 += *v2;
 			break;
-		case 4: v1 -= v2;
+		case 4: *v1 -= *v2;
 			break;
 		case 5: cout << "Enter the number:";
 			cin >> a;
-			v1 *= a;
+			*v1 *= a;
 			break;
 		case 6: if (v1 == v2) cout << "True" << endl;
 				else
@@ -72,23 +85,29 @@ int main(int argc, char const *argv[])
 				else
 					cout << "False" << endl;
 			break;
-		case 8: v2 = v1;
+		case 8: *v2 = *v1;
 			break;
-		case 9: v3 = v1 + v2;
+		case 9: v3 = *v1 + *v2;
 			break;
-		case 10: v3 = v1 - v2;
+		case 10: v3 = *v1 - *v2;
 			break;
 		case 11: cout << "Enter the number:";
 			cin >> a;
-			v3 = v1 * a;
+			v3 = *v1 * a;
 			break;
-		case 12: a = v1 * v2;
-			cout << "Scalar product:" << a << endl;
+		case 12: v1 = CV2v1;
+			v2 = CV2v2;
+			a = *v1 * *v2;
+			cout << "scalar product for CVector2: " << a << endl;
+			v1 = CVPnv1;
+			v2 = CVPnv2;
+			a = *v1 * *v2;
+			cout << "scalar product for CVectorPn: " << a << endl;
 			break;
 		case 13: cout << "vector I: ";
-			v1.print();
+			v1->print();
 			cout << endl << "vector II:  ";
-			v2.print();
+			v2->print();
 			cout << endl << "vector III: ";
 			v3.print();
 			cout << endl;
