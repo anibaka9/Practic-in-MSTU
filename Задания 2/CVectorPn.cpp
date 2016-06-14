@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "math.h"
-#include "CVector.h"
+#include "CVectorvir.h"
 #include "CVectorPn.h"
 
 
@@ -9,10 +9,24 @@ using namespace std;
 
 double CVectorPn::scal(CVector &a)
 {
-	double res = 0;
-	if(CVector::getsize() == a.getsize()) res = CVector::scal(a);
+	if(CVector::getsize() == a.getsize())
+	{
+		int n = CVector::getsize();
+
+		double *x = new double[n];
+		double *y = new double[n];
+		double res = 0;
+		CVector::getdata(x);
+		a.getdata(y);
+		if(CVector::getsize() == a.getsize()) 
+		{
+			for (int i = 0; i < CVector::getsize(); ++i)
+				res -= x[i] * y[i];
+			return res;
+		}	
+	}
+	
 	else cout << "Error: different dimension vectors" << endl;
-	return res;
 }
 
 double CVectorPn::operator * (CVector &a)

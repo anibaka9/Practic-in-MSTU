@@ -1,8 +1,8 @@
 #ifndef __CVECTORPN_H__
 #define __CVECTORPN_H__
 
-#include "CVector.h"
-class CVectorPn : private CVector
+#include "CVectorvir.h"
+class CVectorPn : public CVector
 {
 	public:
 		CVectorPn() : CVector() { }

@@ -2,8 +2,8 @@
 #include <iostream>
 #include "math.h"
 
-#include "CVector.h"
-#include "CVector2.h"
+#include "CVectorvir.h"
+#include "CVectorPn.h"
 
 
 
@@ -22,19 +22,32 @@ int main(int argc, char const *argv[])
 	"9: vector addition (v3 = v1 + v2)" << endl <<
 	"10: vector difference (v3 = v1 - v2)" << endl <<
 	"11: vector by multiplying the number (v3 = v1 * a)" << endl <<
-	"12: scalar multiplication (a = v1 * v2)" << endl <<
+	"12: scalar product (a = v1 * v2)" << endl <<
 	"13: coordinate conclusion" << endl <<
 	"0: exit" << endl;
-	getchar();
-	CVector2 *v1 = new CVector2(), *v2 = new CVector2(), *v3 = new CVector2();
-	CVector *Cv1, *Cv2;
-	int k = 1;
-	double *x;
+
+	CVector *v1, *v2, *v3;
+	int k = 1, n = 2;
 	double a;
-	int n;
+	double *x = 0;
+	x = new double[n];
+	x[0] = 0;
+	x[1] = 1;
+	CVectorPn *CV2v1 = new CVectorPn(n, x);
+	x[0] = 1;
+	x[1] = 2;
+	CVectorPn *CV2v2 = new CVectorPn(n, x);
+	v1 = CV2v1;
+	v2 = CV2v2;
+	(*CV2v1).print();
+	(*CV2v2).print();
+	cout << *CV2v1 * *CV2v2 << endl;
+	cout << *v1 * *v2 << endl;
+
+	getchar();
 	
 
-	while (k != 0)
+	/*while (k != 0)
 	{
 		cin >> k;
 
@@ -49,7 +62,7 @@ int main(int argc, char const *argv[])
 			{
 				cin >> x[i];
 			}
-			*v1 = CVector2(n, x);
+			*v1 = CVector(n, x);
 			break;
 		case 2: cout << "Enter the dimension of the vector II: ";
 			cin >> n;
@@ -60,7 +73,7 @@ int main(int argc, char const *argv[])
 			{
 				cin >> x[i];
 			}
-			*v2 = CVector2(n, x);
+			*v2 = CVector(n, x);
 			break;
 		case 3: *v1 += *v2;
 			break;
@@ -80,31 +93,32 @@ int main(int argc, char const *argv[])
 			break;
 		case 8: *v2 = *v1;
 			break;
-		case 9: *v3 = *v1 + *v2;
+		case 9: v3 = *v1 + *v2;
 			break;
-		case 10: *v3 = *v1 - *v2;
+		case 10: v3 = *v1 - *v2;
 			break;
 		case 11: cout << "Enter the number:";
 			cin >> a;
-			*v3 = *v1 * a;
+			v3 = *v1 * a;
 			break;
-		case 12:
+		case 12: v1 = CV2v1;
+			v2 = CV2v2;
 			a = *v1 * *v2;
-			cout << "scalar multiplication for CVector2: " << a << endl;
-			Cv1 = v1;
-			Cv2 = v2;
-			a = *Cv1 * *Cv2;
-			cout << "scalar multiplication for CVector: " << a << endl;
+			cout << "scalar product for CVector2: " << a << endl;
+			v1 = CVPnv1;
+			v2 = CVPnv2;
+			a = *v1 * *v2;
+			cout << "scalar product for CVectorPn: " << a << endl;
 			break;
 		case 13: cout << "vector I: ";
 			v1->print();
 			cout << endl << "vector II:  ";
 			v2->print();
 			cout << endl << "vector III: ";
-			v3->print();
+			v3.print();
 			cout << endl;
 			break;
 		}
-	}
+	}*/
 	return 0;
 }

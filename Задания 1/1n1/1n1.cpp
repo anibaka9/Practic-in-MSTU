@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
 		cin >> a >> b >> c;
 		if(a == 0) continue;
 		flag = resh(a, b, c, x1, x2);
-		if(flag == 0)
+		if(flag > 0)
 			cout << "x1 = " << x1 << ", x2 = " << x2 << "\n";
 		else
 			cout << "no resh\n";
@@ -34,9 +34,11 @@ int resh(double a, double b, double c, double &x1, double &x2)
 	{
 		x1 = (-b + sqrt(dis)) / (2 * a);
 		x2 = (-b - sqrt(dis)) / (2 * a);
-		return 0;
-	}
-	else
+		if(dis > 0) return 2;
 		return 1;
+	}
+	return 0;
+	
+	
 }
 

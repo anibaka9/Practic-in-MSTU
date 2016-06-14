@@ -10,17 +10,17 @@ using namespace std;
 double CVector2::scal(CVector &a)
 {
 	double res = 0;
-	if((CVector::getsize() == 2) && (a.getsize() == 2))
+	if((getsize() == 2) && (a.getsize() == 2))
 	{
-		double *x = new double[CVector::getsize()];
+		double *x = new double[getsize()];
 		double *y = new double[a.getsize()];
-		CVector::getdata(x);
+		getdata(x);
 		a.getdata(y);
 		res = res + 2*x[0]*y[1] + 5*x[1]*y[0];
 		delete[]x;
 		delete[]y;
 	}
-	else if(CVector::getsize() == a.getsize()) res = CVector::scal(a);
+	else if(getsize() == a.getsize()) res = scal(a);
 	else cout << "Error: different dimension vectors" << endl;
 	return res;
 }

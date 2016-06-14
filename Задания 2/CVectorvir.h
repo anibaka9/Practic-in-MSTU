@@ -1,10 +1,16 @@
-#ifndef __CVECTOR_H__
-#define __CVECTOR_H__
- 
+#ifndef __CVECTORVIR_H__
+#define __CVECTORVIR_H__
+
 class CVector
 {
 public:
-	CVector(int n = 0, double *dt = 0)
+	CVector()
+	{
+		size = 0;
+		data = new double[0];
+	}
+
+	CVector(int n, double *dt = 0)
 	{
 		size = 0;
 		data = 0;
@@ -31,8 +37,9 @@ public:
 	CVector&operator*=(double a);
 	CVector operator+(CVector &a);
 	CVector operator-(CVector &a);
+	CVector operator&(CVector &a);
 	CVector operator*(double a);
-	double operator*(CVector &a);
+	virtual double operator*(CVector &a);
 	bool operator==(CVector &a);
 	bool operator!=(CVector &a);
 
@@ -49,7 +56,8 @@ protected:
 	CVector sum(CVector &a);
 	CVector raz(CVector &a);
 	void umncoef(double a);
-	double scal(CVector &a);
+	CVector vecumn(CVector &a);
+	virtual double scal(CVector &a);
 	bool raven(CVector &a);
 	bool neraven(CVector &a);
 	void copy(CVector &a);

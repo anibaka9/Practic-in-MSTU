@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "math.h"
-
+ 
 #include "CVector.h"
 
 using namespace std;
@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	"9: vector addition (v3 = v1 + v2)" << endl <<
 	"10: vector difference (v3 = v1 - v2)" << endl <<
 	"11: vector by multiplying the number (v3 = v1 * a)" << endl <<
-	"12: scalar product (a = v1 * v2)" << endl <<
+	"12: scalar multiplication (a = v1 * v2)" << endl <<
 	"13: coordinate conclusion" << endl <<
 	"0: exit" << endl;
 
@@ -83,7 +83,7 @@ int main(int argc, char const *argv[])
 			v3 = v1 * a;
 			break;
 		case 12: a = v1 * v2;
-			cout << "Scalar product:" << a << endl;
+			cout << "Scalar multiplication:" << a << endl;
 			break;
 		case 13: cout << "vector I: ";
 			v1.print();
