@@ -33,3 +33,10 @@ double CVectorPn::operator * (CVector &a)
 {
 	return scal(a);
 }
+
+CVectorPn CVectorPn::operator*(double a)
+{
+	CVectorPn res = *this;
+	res.umncoef(a);
+	return res;
+}

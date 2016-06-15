@@ -25,7 +25,6 @@ int main(int argc, char const *argv[])
 	"12: scalar multiplication (a = v1 * v2)" << endl <<
 	"13: coordinate conclusion" << endl <<
 	"0: exit" << endl;
-	getchar();
 	CVector2 *v1 = new CVector2(), *v2 = new CVector2(), *v3 = new CVector2();
 	CVector *Cv1, *Cv2;
 	int k = 1;
