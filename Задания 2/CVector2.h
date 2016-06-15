@@ -8,6 +8,7 @@ class CVector2: public CVector
 		CVector2(int n = 0, double *dt = 0) : CVector(n, dt) { }
 		CVector2(const CVector &a) : CVector(a) { }
 		double operator * (CVector &a);
+		CVector2 operator*(double a);
 		protected:
 		double scal(CVector &a);
 

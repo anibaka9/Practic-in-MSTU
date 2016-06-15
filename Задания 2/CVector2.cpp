@@ -29,3 +29,10 @@ double CVector2::operator * (CVector &a)
 {
 	return scal(a);
 }
+
+CVector2 CVector2::operator*(double a)
+{
+	CVector2 res = *this;
+	res.umncoef(a);
+	return res;
+}

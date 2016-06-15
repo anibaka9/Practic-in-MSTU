@@ -86,7 +86,7 @@ int main(int argc, char const *argv[])
 			break;
 		case 11: cout << "Enter the number:";
 			cin >> a;
-			*v3 = *v1 * a;
+			*v3 = (*v1) * a;
 			break;
 		case 12:
 			a = *v1 * *v2;
