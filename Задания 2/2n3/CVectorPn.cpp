@@ -4,7 +4,7 @@
 #include "CVectorvir.h"
 #include "CVectorPn.h"
 
-
+ 
 using namespace std;
 
 double CVectorPn::scal(CVector &a)
@@ -27,16 +27,4 @@ double CVectorPn::scal(CVector &a)
 	}
 	
 	else cout << "Error: different dimension vectors" << endl;
-}
-
-double CVectorPn::operator * (CVector &a)
-{
-	return scal(a);
-}
-
-CVectorPn CVectorPn::operator*(double a)
-{
-	CVectorPn res = *this;
-	res.umncoef(a);
-	return res;
 }

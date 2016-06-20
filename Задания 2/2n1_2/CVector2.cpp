@@ -10,7 +10,7 @@ using namespace std;
 double CVector2::scal(CVector &a)
 {
 	double res = 0;
-	if((getsize() == 2) && (a.getsize() == 2))
+	if((getsize() > 1) && (a.getsize() > 1))
 	{
 		double *x = new double[getsize()];
 		double *y = new double[a.getsize()];
@@ -20,8 +20,7 @@ double CVector2::scal(CVector &a)
 		delete[]x;
 		delete[]y;
 	}
-	else if(getsize() == a.getsize()) res = scal(a);
-	else cout << "Error: different dimension vectors" << endl;
+	else cout << "Error: dimension vectors < 2" << endl;
 	return res;
 }
 

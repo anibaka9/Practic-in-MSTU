@@ -1,6 +1,6 @@
 #ifndef __CVECTORVIR_H__
 #define __CVECTORVIR_H__
-
+ 
 class CVector
 {
 public:
@@ -39,7 +39,7 @@ public:
 	CVector operator-(CVector &a);
 	CVector operator&(CVector &a);
 	CVector operator*(double a);
-	virtual double operator*(CVector &a);
+	double operator*(CVector &a);
 	bool operator==(CVector &a);
 	bool operator!=(CVector &a);
 

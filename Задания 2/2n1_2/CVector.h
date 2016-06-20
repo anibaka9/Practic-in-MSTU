@@ -40,10 +40,6 @@ public:
 	void getdata(double *a);
 	unsigned int getsize();
 
-	
-	
-
-protected:
 	void prib(CVector &a);
 	void vich(CVector &a);
 	CVector sum(CVector &a);

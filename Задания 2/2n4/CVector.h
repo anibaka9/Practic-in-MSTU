@@ -1,5 +1,5 @@
-#ifndef CVECTOR_H
-#define CVECTOR_H
+#ifndef __CVECTOR_H__
+#define __CVECTOR_H__
 #include <iostream>
 
 using namespace std;
@@ -77,9 +77,7 @@ void CVector<vecsize, DATATYPE>::set_data(DATATYPE *y)
     }
 }
 
-/*==================================================================
-============================‘”Õ ÷»»=================================
-==================================================================*/
+//Functions
 
 template <int vecsize, typename DATATYPE>
 bool CVector<vecsize, DATATYPE>::raven(CVector &a)
@@ -202,9 +200,7 @@ DATATYPE CVector<vecsize, DATATYPE>::scalar(CVector &a)
 
 
 
-/*===============================================================
-============================Œœ≈–¿“Œ–€============================
-===============================================================*/
+//Operators
 
 template <int vecsize, typename DATATYPE>
 bool CVector<vecsize, DATATYPE>::operator == (CVector &a)
@@ -266,4 +262,4 @@ DATATYPE CVector<vecsize, DATATYPE>::operator * (CVector &a)
     return scalar(a);
 }
 
-#endif // CVECTOR_H
+#endif // __CVECTOR_H__

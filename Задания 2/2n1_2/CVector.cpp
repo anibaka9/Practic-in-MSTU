@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <iostream>
 #include "math.h"
 #include "CVector.h"
@@ -53,24 +52,47 @@ void CVector::umncoef(double a)
 
 void CVector::vich(CVector &a) 
 {
-	CVector b(a);
-	b.umncoef(-1);
-	prib(b);
+	if (size == a.size)
+	{
+		CVector b(a);
+		b.umncoef(-1);
+		prib(b);
+	}
+	else cout << "Error: different dimension vectors" << endl;
 }
 
 CVector CVector::sum(CVector &a)
 {
-	CVector c(*this);
-	c.prib(a);
-	return c;
+	if (size == a.size)
+	{
+		CVector c(*this);
+		c.prib(a);
+		return c;
+	}
+	else
+	{
+		cout << "Error: different dimension vectors" << endl;
+		CVector c;
+		return c;
+	}
 }
 
 CVector CVector::raz(CVector &a)
 {
-	CVector c(*this);
-	c.vich(a);
-	return c;
+	if (size == a.size)
+	{
+		CVector c(*this);
+		c.vich(a);
+		return c;
+	}
+	else
+	{
+		cout << "Error: different dimension vectors" << endl;
+		CVector c;
+		return c;
+	}
 }
+
 double CVector::scal(CVector &a)
 {
 	double res = 0;
@@ -144,4 +166,4 @@ double CVector::operator*(CVector &a) { return CVector::scal(a); }
 
 bool CVector::operator==(CVector &a) { return CVector::raven(a); }
 
-bool CVector::operator!=(CVector &a) { return CVector::neraven(a); }
+bool CVector::operator!=(CVector &a) { return !(raven(a)); }
