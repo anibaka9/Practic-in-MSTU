@@ -6,7 +6,7 @@
 class COddOut: public CArrayOut
 {
 public:
-	COddOut(int n, double *b) : Cvector(n, b) { };
+	COddOut(int n, double *b) : CArrayOut(n, b) { };
 	~COddOut() {delete[] data; };
 	void out() const;
 };
